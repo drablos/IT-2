@@ -2,6 +2,5 @@
 
 Todo:
 
-- Skisse
+- Skisser og UML
 - Klasser
-- 
