@@ -2,5 +2,8 @@
 
 Todo:
 
-- Skisser og UML
-- Klasser
+- Skisser og UML (gjort)
+- Klasser (gjort)
+- Config (gjort)
+- Main
+- Sprites
