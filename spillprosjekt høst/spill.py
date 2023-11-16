@@ -12,6 +12,7 @@ class Spill:
 
         self.karakter_spritesheet = Spritesheet("bilder/character.png")
         self.terrain_spritesheet = Spritesheet("bilder/terrain.png")
+        self.fiende_spritesheet = Spritesheet("bilder/enemy.png")
 
     
     def lag_tilemap(self):
@@ -20,6 +21,8 @@ class Spill:
                 Gress(self, j, i)
                 if column == "B":
                     Block(self, j, i) # j = x posisjonen i = y posisjonen
+                if column == "F":
+                    Fiende(self, j, i)
                 if column == "S":
                     Spiller(self, j, i)
                     
