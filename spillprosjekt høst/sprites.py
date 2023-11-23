@@ -56,8 +56,6 @@ class Spiller(pygame.sprite.Sprite): # Klasse i pygame modulen som gjør det enk
                            self.spill.karakter_spritesheet.get_sprite(211, 223, 26, self.hoyde)]
         
 
-
-
     def update(self):
         self.bevegelse()
         self.animer()
@@ -146,9 +144,6 @@ class Spiller(pygame.sprite.Sprite): # Klasse i pygame modulen som gjør det enk
                 if self.animation_loop >= 3:
                     self.animation_loop = 1
 
-
-
-
 class Fiende(pygame.sprite.Sprite):
     def __init__(self, spill, x, y) -> None:
         self.spill = spill
@@ -168,9 +163,6 @@ class Fiende(pygame.sprite.Sprite):
         self.animation_loop = 1
         self.movement_loop = 0
         self.max_travel = random.randint(7, 30)
-
-
-
         self.image = self.spill.fiende_spritesheet.get_sprite(3, 2, self.bredde, self.hoyde)
 
         self.image.set_colorkey(BLACK)
@@ -226,17 +218,6 @@ class Fiende(pygame.sprite.Sprite):
                 self.animation_loop += 0.1
                 if self.animation_loop >= 3:
                     self.animation_loop = 1
-
-
-
-
-
-
-
-
-
-
-
 
 class Block(pygame.sprite.Sprite):
     def __init__(self, spill, x, y) -> None:
