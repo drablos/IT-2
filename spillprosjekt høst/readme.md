@@ -5,5 +5,7 @@ Todo:
 - Skisser og UML (gjort)
 - Klasser (gjort)
 - Config (gjort)
-- Main
-- Sprites
+- Main (gjort)
+- Sprites (gjort)
+- intro og game over (gjort)
+- angrep (gjort)
