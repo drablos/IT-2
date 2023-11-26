@@ -9,3 +9,4 @@ Todo:
 - Sprites (gjort)
 - intro og game over (gjort)
 - angrep (gjort)
+- poeng (gjort)

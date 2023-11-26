@@ -11,8 +11,6 @@ class Spritesheet:
         sprite.set_colorkey(BLACK)
         return sprite
 
-
-    
 class Spiller(pygame.sprite.Sprite): # Klasse i pygame modulen som gjør det enklere å lage sprites
     def __init__(self, spill, x, y) -> None:
         self.spill = spill
@@ -32,8 +30,6 @@ class Spiller(pygame.sprite.Sprite): # Klasse i pygame modulen som gjør det enk
 
         self.image = self.spill.karakter_spritesheet.get_sprite(0, 0, 25, self.hoyde)
         
-    
-
         self.rect = self.image.get_rect()
         self.rect.x = self.x
         self.rect.y = self.y
@@ -108,9 +104,7 @@ class Spiller(pygame.sprite.Sprite): # Klasse i pygame modulen som gjør det enk
                 if self.y_change < 0:
                     self.rect.y = hits[0].rect.bottom 
 
-
     def animer(self):
-        
         if self.facing == "down":
             if self.y_change == 0:
                 self.image = self.spill.karakter_spritesheet.get_sprite(0, 0, 25, self.hoyde)
@@ -162,7 +156,7 @@ class Fiende(pygame.sprite.Sprite):
         self.facing = random.choice(["left", "right"])
         self.animation_loop = 1
         self.movement_loop = 0
-        self.max_travel = random.randint(7, 30)
+        self.max_travel = random.randint(7, 100)
         self.image = self.spill.fiende_spritesheet.get_sprite(3, 2, self.bredde, self.hoyde)
 
         self.image.set_colorkey(BLACK)
@@ -336,6 +330,9 @@ class Angrep(pygame.sprite.Sprite):
     
     def kollisjon(self):
         hits = pygame.sprite.spritecollide(self, self.spill.fiender, True)
+        if hits:
+            self.spill.points += 1
+            self.spill.display_points()
     
     def animer(self):
         retning = self.spill.spiller.facing
@@ -363,39 +360,3 @@ class Angrep(pygame.sprite.Sprite):
             self.animation_loop += 0.5
             if self.animation_loop >= 5:
                 self.kill()
-
-
-
-
-
-
-
-
-        
-
-    
-
-
-
-
-
-        
-
-
-    
-
-
-
-
-        
-
-        
-
-        
-
-
-
-
-
-
-

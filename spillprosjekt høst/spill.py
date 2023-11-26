@@ -1,4 +1,4 @@
-import pygame, random, sys
+import pygame, sys
 from sprites import *
 from config import *
 
@@ -10,7 +10,7 @@ class Spill:
         self.clock= pygame.time.Clock()
         self.running = True
         self.font = pygame.font.SysFont('Helvetica', 32)
-
+        self.points = 0
         self.karakter_spritesheet = Spritesheet("bilder/character.png")
         self.terrain_spritesheet = Spritesheet("bilder/terrain.png")
         self.fiende_spritesheet = Spritesheet("bilder/enemy.png")
@@ -29,13 +29,18 @@ class Spill:
                     Fiende(self, j, i)
                 if column == "S":
                     self.spiller = Spiller(self, j, i)
-                    
+    
+    def display_points(self):
+        points_text = self.font.render(f"Poeng: {self.points}", True, WHITE, BLACK)
+        points_rect = points_text.get_rect(topright=(BREDDE - 10, 10))
+        self.vindu.blit(points_text, points_rect)
 
 
     def ny(self):
         # nytt spill starter
         self.playing = True
 
+        self.points = 0 # sette poeng tilbake til 0 etter man har dødd
         self.alle_sprites = pygame.sprite.LayeredUpdates() # Objekt som inneholder alle sprites til spillet, en gruppe gjør at mnan kan oppdatere alle på en gang
         self.blokker = pygame.sprite.LayeredUpdates()
         self.fiender = pygame.sprite.LayeredUpdates()
@@ -43,6 +48,7 @@ class Spill:
 
         self.lag_tilemap()
     
+
     def events(self):
         # game loop events
         for event in pygame.event.get():
@@ -61,19 +67,16 @@ class Spill:
                     if self.spiller.facing == "right":
                         Angrep(self, self.spiller.rect.x + TILESIZE, self.spiller.rect.y)
 
-
-
     
     def update(self):
         self.alle_sprites.update()
 
 
-
-    
     def tegn(self):
         # game loop tegn
         self.vindu.fill(BLACK)
         self.alle_sprites.draw(self.vindu)
+        self.display_points()
         self.clock.tick(FPS)
         pygame.display.update()
 
@@ -112,10 +115,6 @@ class Spill:
             self.clock.tick(FPS)
             pygame.display.update()
 
-
-
-
-
     
     def intro_skjerm(self):
         intro = True
@@ -142,10 +141,6 @@ class Spill:
             self.vindu.blit(play_button.image, play_button.rect)
             self.clock.tick(FPS)
             pygame.display.update()
-
-
-
-                
 
 s = Spill()
 s.intro_skjerm()
