@@ -56,4 +56,5 @@ Flytdiagram kan være nyttige for å kommunisere algoritmer til andre, spesielt 
 - Oppgave 2: D
 - Oppgave 3: A
 - Oppgave 4: A
-- Oppgave 6a: 
+- Oppgave 6: Alternativ 3
+- Oppgave 7: 
