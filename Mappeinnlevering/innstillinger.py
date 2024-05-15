@@ -1,0 +1,15 @@
+# Spill setup
+BREDDE = 1280
+HOYDE = 720
+FPS = 60
+
+# Spiller innstillinger
+SPILLER_START_X = 400
+SPILLER_START_Y = 500
+SPILLER_STORRELSE = 0.35
+SPILLER_FART = 8
+
+# Skudd innstillinger
+SKYT_COOLDOWN = 20
+SKUDD_STR = 1.4
+SKUDD_FART = 10
